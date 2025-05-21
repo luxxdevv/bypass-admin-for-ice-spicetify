@@ -27,18 +27,6 @@ function Write-Unsuccess {
   }
 }
 
-function Test-Admin {
-  [CmdletBinding()]
-  param ()
-  begin {
-    Write-Host -Object "Checking if the script is not being run as administrator..." -NoNewline
-  }
-  process {
-    $currentUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-    -not $currentUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-  }
-}
-
 function Test-PowerShellVersion {
   [CmdletBinding()]
   param ()
